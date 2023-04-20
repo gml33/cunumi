@@ -13,8 +13,8 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 @login_required
 def index(request):
-    pacientes = paciente.objects.all()[:5]
-    historiaClinicas = historiaClinica.objects.all()[:5]
+    pacientes = paciente.objects.all()
+    historiaClinicas = historiaClinica.objects.all()
     total_pacientes = paciente.objects.all().count()
     total_historiaClinicas = historiaClinica.objects.all().count()
     data = {

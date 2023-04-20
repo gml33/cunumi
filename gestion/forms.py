@@ -13,6 +13,7 @@ class pacienteForm(forms.ModelForm):
     )
     estado = forms.ChoiceField(
         choices=estado_choices, widget=forms.RadioSelect())
+    fecha_ingreso =forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = paciente
@@ -20,6 +21,7 @@ class pacienteForm(forms.ModelForm):
 
 
 class evolucionForm(forms.ModelForm):
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = evolucion
@@ -27,6 +29,7 @@ class evolucionForm(forms.ModelForm):
 
 
 class derivacionForm(forms.ModelForm):
+    fecha = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
 
     class Meta:
         model = derivacion
@@ -45,5 +48,4 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name',
-                  'email', 'password1', 'password2']
+        fields = ['username', 'first_name', 'last_name','email', 'password1', 'password2']

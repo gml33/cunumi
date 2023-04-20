@@ -26,8 +26,7 @@ class paciente(models.Model):
     )
     estado = models.CharField(
         max_length=20, choices=estado_choices, default='activo')
-    imagen = models.ImageField(upload_to='pacientes', blank=True)
-
+    
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
@@ -37,7 +36,6 @@ class historiaClinica(models.Model):
         paciente, on_delete=models.CASCADE, blank=True)
     fecha = models.DateField(blank=True, null=True)
     detalle = models.TextField(blank=True)
-    imagen = models.ImageField(upload_to='Hc', blank=True)
 
     def __str__(self):
         return f"{self.paciente} - {self.fecha}"
@@ -48,7 +46,6 @@ class evolucion(models.Model):
         paciente, on_delete=models.CASCADE, blank=True)
     fecha = models.DateField(blank=True, null=True)
     detalle = models.TextField(blank=True)
-    imagen = models.ImageField(upload_to='evoluciones', blank=True)
 
     def __str__(self):
         return f"{self.paciente} - {self.fecha}"
@@ -60,4 +57,3 @@ class derivacion(models.Model):
     fecha = models.DateField(blank=True, null=True)
     motivo = models.TextField(blank=True)
     profesional = models.CharField(max_length=200, blank=True)
-    imagen = models.ImageField(upload_to='derivaciones', blank=True)
